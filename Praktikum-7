@@ -1,0 +1,51 @@
+class Person:
+    """Kelas dasar untuk merepresentasikan seorang"""
+    def __init__(self, nama):
+        self.nama = nama
+    
+    def cetak_nama(self):
+        print(f'Nama: {self.nama}')
+
+
+class Mahasiswa(Person):
+    """Kelas Mahasiswa yang mewarisi dari Person"""
+    def __init__(self, nim, nama):
+        Person.__init__(self, nama)
+        self.nim = nim
+    
+    def cetak_info(self):
+        print(f'NIM: {self.nim}, Nama: {self.nama}')
+
+
+def main():
+    print('=== Contoh Class Inheritance ===\n')
+    
+    mhs1 = Mahasiswa('312510221', 'Tiyo Endriyana')
+    
+    print('Instance mhs1:')
+    print(f'  mhs1.nim = {mhs1.nim}')
+    print(f'  mhs1.nama = {mhs1.nama}')
+    
+
+    mhs1.umur = 19
+    mhs1.alamat = "Bekasi"
+    print(f'  mhs1.umur = {mhs1.umur}')
+    print(f'  mhs1.alamat = {mhs1.alamat}')
+    
+    print('\nPanggil method dari Person:')
+    mhs1.cetak_nama()
+    
+    print('\nPanggil method dari Mahasiswa:')
+    mhs1.cetak_info()
+    
+    print('\n--- Contoh Mahasiswa lain ---')
+    mhs2 = Mahasiswa('21256667', 'Budi')
+    mhs2.umur = 18
+    print(f'mhs2.nim = {mhs2.nim}')
+    print(f'mhs2.nama = {mhs2.nama}')
+    print(f'mhs2.umur = {mhs2.umur}')
+    mhs2.cetak_info()
+
+
+if __name__ == '__main__':
+    main()
